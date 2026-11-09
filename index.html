@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة العمل الحر المصغرة | Mini Freelance Platform</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fa-solid fa-briefcase"></i>
+                <h1 data-translate="logo">ميني فري لانس</h1>
+            </div>
+            <div class="nav-links">
+                <a href="#home" class="nav-link active" data-translate="nav_home">الرئيسية</a>
+                <a href="#projects" class="nav-link" data-translate="nav_projects">المشاريع</a>
+                <a href="#freelancers" class="nav-link" data-translate="nav_freelancers">المستقلين</a>
+                <a href="#post-project" class="nav-link" data-translate="nav_post">نشر مشروع</a>
+            </div>
+            <div class="nav-controls">
+                <button id="langToggle" class="lang-toggle">
+                    <span id="langText">EN</span>
+                </button>
+                <button id="themeToggle" class="theme-toggle">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 data-translate="hero_title">منصة العمل الحر المصغرة</h1>
+            <p data-translate="hero_subtitle">اعثر على أفضل المستقلين لمشروعك أو اعرض مهاراتك وابدأ في الكسب</p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary" data-translate="btn_browse">تصفح المشاريع</a>
+                <a href="#post-project" class="btn btn-secondary" data-translate="btn_post">نشر مشروع</a>
+            </div>
+        </div>
+        <div class="hero-stats">
+            <div class="stat">
+                <h3>150+</h3>
+                <p data-translate="stat_projects">مشروع</p>
+            </div>
+            <div class="stat">
+                <h3>80+</h3>
+                <p data-translate="stat_freelancers">مستقل</p>
+            </div>
+            <div class="stat">
+                <h3>95%</h3>
+                <p data-translate="stat_satisfaction">رضا العملاء</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="projects-section">
+        <div class="section-header">
+            <h2 data-translate="section_projects">المشاريع المتاحة</h2>
+            <div class="search-bar">
+                <input type="text" id="searchInput" data-placeholder="search_placeholder" placeholder="ابحث عن مشروع...">
+                <select id="categoryFilter">
+                    <option value="" data-translate="filter_all">جميع الفئات</option>
+                    <option value="web" data-translate="cat_web">تطوير ويب</option>
+                    <option value="design" data-translate="cat_design">تصميم</option>
+                    <option value="writing" data-translate="cat_writing">كتابة</option>
+                    <option value="marketing" data-translate="cat_marketing">تسويق</option>
+                </select>
+            </div>
+        </div>
+        <div class="projects-grid" id="projectsGrid">
+            <!-- Projects will be loaded dynamically -->
+        </div>
+    </section>
+
+    <section id="freelancers" class="freelancers-section">
+        <div class="section-header">
+            <h2 data-translate="section_freelancers">أفضل المستقلين</h2>
+        </div>
+        <div class="freelancers-grid" id="freelancersGrid">
+            <!-- Freelancers will be loaded dynamically -->
+        </div>
+    </section>
+
+    <section id="post-project" class="post-project-section">
+        <div class="section-header">
+            <h2 data-translate="section_post">نشر مشروع جديد</h2>
+        </div>
+        <form id="projectForm" class="project-form">
+            <div class="form-group">
+                <label for="projectTitle" data-translate="form_title">عنوان المشروع</label>
+                <input type="text" id="projectTitle" required data-placeholder="placeholder_title" placeholder="أدخل عنوان المشروع">
+            </div>
+            <div class="form-group">
+                <label for="projectDescription" data-translate="form_description">وصف المشروع</label>
+                <textarea id="projectDescription" rows="5" required data-placeholder="placeholder_description" placeholder="صف مشروعك بالتفصيل"></textarea>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="projectBudget" data-translate="form_budget">الميزانية ($)</label>
+                    <input type="number" id="projectBudget" required data-placeholder="placeholder_budget" placeholder="الميزانية المتوقعة">
+                </div>
+                <div class="form-group">
+                    <label for="projectCategory" data-translate="form_category">الفئة</label>
+                    <select id="projectCategory" required>
+                        <option value="" data-translate="select_category">اختر الفئة</option>
+                        <option value="web" data-translate="cat_web">تطوير ويب</option>
+                        <option value="design" data-translate="cat_design">تصميم</option>
+                        <option value="writing" data-translate="cat_writing">كتابة</option>
+                        <option value="marketing" data-translate="cat_marketing">تسويق</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="projectDeadline" data-translate="form_deadline">الموعد النهائي</label>
+                <input type="date" id="projectDeadline" required>
+            </div>
+            <button type="submit" class="btn btn-primary" data-translate="btn_submit">نشر المشروع</button>
+        </form>
+    </section>
+
+    <!-- Project Details Modal -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modalBody">
+                <!-- Project details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Bid Modal -->
+    <div id="bidModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 data-translate="modal_bid_title">تقديم عرض</h2>
+            <form id="bidForm" class="bid-form">
+                <div class="form-group">
+                    <label for="bidAmount" data-translate="form_bid_amount">مبلغ العرض ($)</label>
+                    <input type="number" id="bidAmount" required data-placeholder="placeholder_bid_amount" placeholder="أدخل مبلغ العرض">
+                </div>
+                <div class="form-group">
+                    <label for="bidDescription" data-translate="form_bid_description">وصف العرض</label>
+                    <textarea id="bidDescription" rows="4" required data-placeholder="placeholder_bid_description" placeholder="اشرح سبب كونك الخيار الأفضل"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" data-translate="btn_send">إرسال العرض</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 data-translate="footer_title">ميني فري لانس</h3>
+                <p data-translate="footer_description">منصة العمل الحر المصغرة لربط أصحاب المشاريع بالمستقلين المحترفين</p>
+            </div>
+            <div class="footer-section">
+                <h3 data-translate="footer_links">روابط سريعة</h3>
+                <a href="#home" data-translate="nav_home">الرئيسية</a>
+                <a href="#projects" data-translate="nav_projects">المشاريع</a>
+                <a href="#freelancers" data-translate="nav_freelancers">المستقلين</a>
+            </div>
+            <div class="footer-section">
+                <h3 data-translate="footer_contact">تواصل معنا</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                    <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#"><i class="fa-brands fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p data-translate="footer_copyright">© 2026 ميني فري لانس. جميع الحقوق محفوظة</p>
+        </div>
+    </footer>
+
+    <script src="logic.js" differ></script>
+</body>
+</html>
